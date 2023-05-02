@@ -1,1 +1,71 @@
-# caroline-meehan-bose.github.io
+<!DOCTYPE html>
+<html>
+
+<style>
+    before {
+        padding: 0px;
+        margin: 0px;
+        font-size: 16px;
+    }
+
+    body {
+        height: 75vh;
+        width: 150vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-family: sans-serif;
+        border: 7px solid midnightblue;
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+    <form id="frm1" action="/action_page.php">
+        Enter values in the fields, then click "Calculate":<br><br>
+        Part Volume: <input type="number" name="volume">mm<sup>3<br>
+            How many parts are being molded? <input type="number" name="numparts"><br><br>
+    </form>
+
+    <input type="button" onclick="myFunction()" value="Calculate">
+
+    <p id="demo"></p>
+
+</body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("frm1");
+
+        if (x.elements[0].value == "") {
+            window.alert("Please enter the part volume.");
+            x.elements[0].focus();
+        }
+        else if (x.elements[1].value == "") {
+            window.alert("Please enter the number of parts you'd like molded.");
+            x.elements[1].focus();
+        }
+        else {
+
+            //specific volume of silicone: 1.1-1.5 g/cm^3
+            var mass = x.elements[0].value * 0.0013;
+            var numparts = x.elements[1].value;
+
+            var text =
+                "<br>" +
+                "Mass per part: " +
+                mass.toFixed(2) +
+                " grams" +
+                "<br>" +
+                "Total mass: " +
+                (mass * numparts).toFixed(2) +
+                " grams";
+
+            document.getElementById("demo").innerHTML = text;
+        }
+    }
+</script>
+
+</html>
