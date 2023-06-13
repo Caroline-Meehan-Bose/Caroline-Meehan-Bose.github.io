@@ -49,15 +49,13 @@
             x.elements[1].focus();
         }
         else {
-
-            //specific volume of silicone: 1.1-1.5 g/cm^3
-            var mass = x.elements[0].value * 0.0013;
-            var numParts = x.elements[1].value;
+            var mass = x.elements[0].value * 0.0013; <!-- specific volume of silicone: 1.1-1.5 g/cm^3 >
+            var numParts = x.elements[1].value; <!-- useful when more than one part is being molded, but one vial of silicone is being mixed >
 
             var text
                 = "<br>" 
                 + "Mass per part: "
-                + ((mass * numParts * 1.1) + 23.5).toFixed(2)
+                + ((mass * numParts * 1.1) + 23.5).toFixed(2) <!-- added value was measured by hand during molding process >
                 + " grams";
 
             document.getElementById("demo").innerHTML = text;
